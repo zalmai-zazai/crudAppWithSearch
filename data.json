@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "title": "3rd",
+      "content": "second ahad shah",
+      "id": "ba79"
+    },
+    {
+      "title": "2nd",
+      "content": "sdfsdf",
+      "id": "a306"
+    },
+    {
+      "title": "22",
+      "content": "dsfsdf",
+      "id": "d719"
+    },
+    {
+      "id": "73d9",
+      "title": "bahar",
+      "content": "this post was made by bahar\n"
+    },
+    {
+      "id": "e64d",
+      "title": "4th post",
+      "content": "this is fourth post"
+    }
+  ]
+}
