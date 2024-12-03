@@ -7,7 +7,7 @@ export async function POST(req) {
   try {
     await connectDB();
 
-    const { email, password } = await req.json();
+    const { name, email, password } = await req.json();
     const userExisting = await User.findOne({ email });
     if (!userExisting) {
       return NextResponse.json({ message: 'User was not found!', status: 404 });
@@ -23,7 +23,12 @@ export async function POST(req) {
         status: 500,
       });
     }
-    return NextResponse.json({ message: 'success', status: 201 });
+    const loginUser = userExisting.name;
+    return NextResponse.json({
+      message: 'success',
+      status: 201,
+      user: loginUser,
+    });
   } catch (error) {
     return NextResponse.json({ message: 'Error Connecting', status: 500 });
   }

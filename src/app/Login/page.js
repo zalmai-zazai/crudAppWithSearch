@@ -10,14 +10,17 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [response, setResponse] = useState('');
   const router = useRouter();
+  const [user, setUser] = useState('');
 
   const handelSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('api/login', { email, password });
-      console.log(response.data.message);
+      console.log(response.data.user);
+      setUser(response.data.user);
       setResponse(response.data.message);
       if (response.data.message === 'success') {
+        localStorage.setItem('user', JSON.stringify(response.data.user));
         router.push('/posts');
       }
     } catch (error) {
