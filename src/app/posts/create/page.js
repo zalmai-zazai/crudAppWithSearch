@@ -11,10 +11,11 @@ const CreatePost = () => {
   const handelSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5004/posts', { title, content });
+      // await axios.post('http://localhost:5004/posts', { title, content });
+      await axios.post('../api/posts', { title, content });
       router.push('/');
     } catch (error) {
-      console.log(error);
+      console.log('Error fron front end' + error);
     }
   };
 

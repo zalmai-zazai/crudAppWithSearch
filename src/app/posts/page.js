@@ -12,7 +12,8 @@ const Posts = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:5004/posts');
+      const response = await axios.get('api/posts');
+      console.log(response.data);
       const sortedPosts = response.data.sort((a, b) =>
         a.title.localeCompare(b.title)
       );
@@ -59,7 +60,7 @@ const Posts = () => {
 
   useEffect(() => {
     fetchData();
-  }, [posts]);
+  }, []);
 
   return (
     user && (
@@ -98,8 +99,8 @@ const Posts = () => {
           </thead>
           <tbody>
             {filteredPosts.map((post) => (
-              <tr key={post.id}>
-                <th scope="row">{post.id}</th>
+              <tr key={post._id}>
+                <th scope="row">{post._id.slice(-4)}</th>
                 <td>{post.title}</td>
                 <td>{post.content}</td>
                 <td>
