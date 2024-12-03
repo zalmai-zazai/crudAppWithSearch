@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
-
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [currentPostId, setCurrentPostId] = useState(null);
@@ -64,6 +63,10 @@ const Posts = () => {
         <Link className="btn btn-primary " href={'/posts/create'}>
           Create Post
         </Link>
+        <Link className="mx-2 btn btn-primary" href={'/'}>
+          {' '}
+          Logout
+        </Link>
       </div>
 
       <table className="table">
@@ -86,7 +89,6 @@ const Posts = () => {
                   type="button"
                   className="btn btn-success mx-3"
                   data-bs-toggle="modal"
-                  data-bs-whatever="@mdo"
                   data-bs-target={`#updateModal-${post.id}`}
                   onClick={() => openModal(post)}
                 >
@@ -97,7 +99,7 @@ const Posts = () => {
                   className="modal fade"
                   id={`updateModal-${post.id}`}
                   tabIndex="-1"
-                  aria-labelledby={`exampleModalLabel-${post.id}`}
+                  //   aria-labelledby={`exampleModalLabel-${post.id}`}
                   aria-hidden="true"
                 >
                   <div className="modal-dialog">
